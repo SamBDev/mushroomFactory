@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MUSHROOMOOM</title>
+    </head>
+    <body ng-app="app">
+
+        <div ng-controller="MushroomHandler">
+
+            <input type="text" ng-model = "mushroomSearch" placeholder="Badger badger badger badger">
+            <div>
+                <input type="radio" name="dangerous" ng-model="safeOrNot" value="true">
+                <input type="radio" name="dangerous" ng-model="safeOrNot" value="false">
+            </div>
+
+            <ul>
+                <li ng-repeat="mushroom in mushroomData | filter: {description: mushroomSearch, edible: safeOrNot}">
+                    <h3>{{mushroom.name}}</h3>
+                    <p>{{mushroom.description}}</p>
+                </li>
+            </ul>
+
+        </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    </body>
+</html>
